@@ -67,8 +67,9 @@ function Home() {
   const submitHandel = async (e) => {
     e.preventDefault();
     if (vadidation()) {
-      dispatch(updatedata(form.id, form));
+      dispatch(updatedata(form));
       dispatch(showUser());
+      toast.success("Update Success");
       return false;
     }
   };
@@ -217,6 +218,7 @@ function Home() {
                 <button
                   type="submit"
                   onClick={submitHandel}
+                  data-bs-dismiss="modal"
                   className="btn btn-primary"
                 >
                   Submit
@@ -236,6 +238,7 @@ function Home() {
           </div>
         </div>
       </div>
+
       <Footer />
     </>
   );

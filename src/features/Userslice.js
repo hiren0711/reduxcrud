@@ -17,12 +17,13 @@ export const deletedata = createAsyncThunk("deletedata", async (id) => {
   console.log(res);
 });
 
-export const updatedata = createAsyncThunk("update", async (id, formvalue) => {
-  console.log(id);
-  console.log(formvalue);
-  return false;
+export const updatedata = createAsyncThunk("update", async (formvalue) => {
+  const res = await axios.patch(
+    `http://localhost:3000/user/${formvalue.id}`,
+    formvalue
+  );
+  return res.data;
 });
-
 export const Userslice = createSlice({
   name: "user",
   initialState: {
